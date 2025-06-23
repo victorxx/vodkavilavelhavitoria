@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- SEO Essentials -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Confira as últimas notícias de Vitória, Vila Velha, Linhares e Serra. Atualizações diárias sobre política, economia, segurança e mais no Espírito Santo." />
+  <meta name="keywords" content="notícias Vitória, Vila Velha, Linhares, Serra, Espírito Santo, jornal, atualizações, ES" />
+  <meta name="author" content="Portal Notícias ES" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0d47a1" />
+
+
+  <!-- Open Graph (Social Media Preview) -->
+  <meta property="og:title" content="Notícias do Espírito Santo – Vitória, Vila Velha, Linhares, Serra" />
+  <meta property="og:description" content="Últimas notícias do ES com foco em Vitória, Vila Velha, Linhares e Serra." />
+  <meta property="og:url" content="https://seudominio.com/noticias-es" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://seudominio.com/imagem-compartilhamento.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Notícias do Espírito Santo – Vitória, Vila Velha, Linhares, Serra" />
+  <meta name="twitter:description" content="Últimas notícias com foco no Espírito Santo." />
+  <meta name="twitter:image" content="https://seudominio.com/imagem-compartilhamento.jpg" />
+
+  <title>Notícias do Espírito Santo – Vitória, Vila Velha, Linhares, Serra</title>
+
+  <!-- Estilos -->
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f0f2f5;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(90deg, #0d47a1, #1976d2);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    header p {
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 1rem;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    section h2 {
+      border-left: 5px solid #1976d2;
+      padding-left: 10px;
+      font-size: 1.5rem;
+      color: #0d47a1;
+      margin-bottom: 0.5rem;
+    }
+
+    article {
+      background: white;
+      padding: 1rem;
+      margin-top: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    article:hover {
+      transform: scale(1.01);
+    }
+
+    article h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.2rem;
+      color: #1976d2;
+    }
+
+    article time {
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    article p {
+      margin-top: 0.5rem;
+    }
+
+    footer {
+      background: #0d47a1;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      article h3 {
+        font-size: 1rem;
+      }
+    }
+      #propaganda{
+  color: white; /* texto branco para destacar */
+  font-size: large; /* tamanho agradável para botões */
+  position: fixed;
+  bottom: 200px;
+  left: 60%;
+  background-color: blue;
+  border-radius: 8px; /* bordas arredondadas padrão */
+  border: none;
+  padding: 50px 66px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* sombra leve */
+  transition: background-color 0.3s ease;
+  width: 10%;
+  color:whitesmoke;
+
+  }
+
+
+        #propaganda2{
+  color: white; /* texto branco para destacar */
+  font-size: large; /* tamanho agradável para botões */
+  position: fixed;
+  bottom: 200px;
+  left: 10%;
+  background-color: green;
+  border-radius: 8px; /* bordas arredondadas padrão */
+  border: none;
+  padding: 50px 66px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* sombra leve */
+  transition: background-color 0.3s ease;
+  width: 10%;
+  color:whitesmoke;
+
+  }
+  a{
+    color: black;
+
+  }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Notícias do Espírito Santo</h1>
+    <!-- Data e hora serão exibidas aqui -->
+    <p>Vitória, Vila Velha, Linhares e Serra — Atualizações diárias</p>
+        <div id="dataHora" style="font-size: 1.2rem; color: red; font-weight: bold; margin-bottom: 1rem;">
+        <!-- Data e hora serão exibidas aqui -->
+        </div>
+
+        <script>
+        function atualizarDataHora() {
+            const agora = new Date();
+            const opcoes = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const dataFormatada = agora.toLocaleDateString('pt-BR', opcoes);
+            const horaFormatada = agora.toLocaleTimeString('pt-BR');
+            document.getElementById("dataHora").textContent = `📅 ${dataFormatada} – 🕒 ${horaFormatada}`;
+        }
+
+        setInterval(atualizarDataHora, 1000);
+        atualizarDataHora(); // inicializa imediatamente
+        </script>
+        <!-- Data e hora serão exibidas aqui -->
+  </header>
+
+  <main class="container">
+    <!-- Vitória -->
+    <section id="vitoria">
+      <h2>Vitória</h2>
+      <article>
+        <time datetime="2025-06-23">23 de junho de 2025</time>
+        <h3>Evento movimenta o centro de Vitória com atrações culturais</h3>
+        <p>Moradores e turistas participaram de uma grande feira de arte, gastronomia e música ao vivo no Parque Moscoso neste fim de semana.</p>
+        <a href="#">Leia mais &rsaquo;</a>
+      </article>
+    </section>
+
+    <!-- Vila Velha -->
+    <section id="vila-velha">
+      <h2>Vila Velha</h2>
+      <article>
+        <time datetime="2025-06-22">22 de junho de 2025</time>
+        <h3>Prefeitura inicia obras de revitalização da orla de Itaparica</h3>
+        <p>O projeto prevê calçadão, ciclovia e nova iluminação para valorizar o turismo e a segurança da região.</p>
+        <a href="#">Leia mais &rsaquo;</a>
+      </article>
+    </section>
+
+    <!-- Linhares -->
+    <section id="linhares">
+      <h2>Linhares</h2>
+      <article>
+        <time datetime="2025-06-21">21 de junho de 2025</time>
+        <h3>Nova fábrica gera 300 empregos diretos em Linhares</h3>
+        <p>Com investimento de R$ 80 milhões, empresa do setor de embalagens se instala no Polo Industrial do município.</p>
+        <a href="#">Leia mais &rsaquo;</a>
+      </article>
+    </section>
+
+    <!-- Serra -->
+            <section id="serra">
+            <h2>Serra</h2>
+            <article>
+                <time datetime="2025-06-20">20 de junho de 2025</time>
+                <h3>Serra recebe centro de inovação tecnológica</h3>
+                <p>O espaço vai oferecer capacitação, apoio a startups e estimular o empreendedorismo digital na região metropolitana.</p>
+                <a href="#">Leia mais &rsaquo;</a>
+            </article>
+
+
+            <article>
+            <time datetime="2025-06-19">19 de junho de 2025</time>
+            <h3>Feira de Empregos atrai mais de 3 mil pessoas na Serra</h3>
+            <p>O evento contou com a presença de grandes empresas da região oferecendo vagas e serviços de orientação profissional.</p>
+            <a href="#">Leia mais &rsaquo;</a>
+            </article>
+
+            <article>
+            <time datetime="2025-06-18">18 de junho de 2025</time>
+            <h3>Serra inaugura nova Unidade de Pronto Atendimento (UPA)</h3>
+            <p>Moradores de Feu Rosa agora contam com uma nova UPA 24h, equipada com laboratório e leitos de observação.</p>
+            <a href="#">Leia mais &rsaquo;</a>
+            </article>
+
+            <article>
+            <time datetime="2025-06-17">17 de junho de 2025</time>
+            <h3>Projeto leva oficinas de robótica para escolas públicas da Serra</h3>
+            <p>Alunos do ensino fundamental passam a ter aulas práticas de tecnologia com foco em programação e montagem de robôs.</p>
+            <a href="#">Leia mais &rsaquo;</a>
+            </article>
+
+            <article>
+            <time datetime="2025-06-16">16 de junho de 2025</time>
+            <h3>Comércio da Serra registra aumento de 18% nas vendas em junho</h3>
+            <p>Segundo a CDL local, a movimentação foi impulsionada pelo Dia dos Namorados e pelas festas juninas.</p>
+            <a href="#">Leia mais &rsaquo;</a>
+            </article>
+
+            <article>
+            <time datetime="2025-06-15">15 de junho de 2025</time>
+            <h3>Obras da nova ciclovia em Jacaraípe entram na fase final</h3>
+            <p>O trecho de 5 km ligará o centro ao balneário e deve melhorar a mobilidade urbana na região litorânea da Serra.</p>
+            <a href="#">Leia mais &rsaquo;</a>
+            </article>
+
+
+
+    </section>
+    
+  </main>
+  <div id="propaganda2">
+    <a href="https://creditopessoal.vercel.app/">
+        SEGUROS ,CONSÓRCIOS E CRÉDITO PESSOAL
+    </a>
+  </div>
+  <!----------------vodkapreco-->
+  <div id="propaganda">
+   <div id="propaganda">
+  <a href="#" id="link" target="_blank">CONFIRA AS MELHORES VODKAS DO MERCADO!</a>
+</div>
+
+<script>
+  const links = [
+    'https://www.espiritosanto-es.com.br/vodka/',
+    'https://filmeseserie.com.br/vodka/',
+  ];
+
+  function randomIndex(arr) {
+    return Math.floor(Math.random() * arr.length); // Gera um índice válido aleatório
+  }
+
+  const novo = randomIndex(links);           // Gera o índice
+  const escolhido = links[novo];             // Acessa o link pelo índice
+  document.getElementById('link').href = escolhido; // Define o href dinamicamente
+</script>
+
+  </div>
+  <!----------------vodkapreco-->
+  <footer>
+    
+  </footer>
+
+</body>
+</html>
