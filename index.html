@@ -72,6 +72,7 @@
       font-size: 1.5rem;
       color: #0d47a1;
       margin-bottom: 0.5rem;
+      text-transform: capitalize;
     }
 
     article {
@@ -96,10 +97,26 @@
     article time {
       font-size: 0.85rem;
       color: #555;
+      display: block;
+      margin-bottom: 0.5rem;
     }
 
     article p {
       margin-top: 0.5rem;
+    }
+
+    article a {
+      display: inline-block;
+      margin-top: 0.8rem;
+      color: #0d47a1;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    article a:hover {
+      color: #1976d2;
+      text-decoration: underline;
     }
 
     footer {
@@ -128,6 +145,14 @@
       section {
         flex: 1 1 100%;
       }
+
+      #propaganda, #propaganda2 {
+        position: fixed;
+        bottom: 100px;
+        padding: 15px 20px;
+        width: auto;
+        font-size: 1rem;
+      }
     }
 
     #propaganda, #propaganda2 {
@@ -141,6 +166,7 @@
       cursor: pointer;
       width: 10%;
       text-align: center;
+      z-index: 1000;
     }
 
     #propaganda {
@@ -153,9 +179,14 @@
       background-color: green;
     }
 
-    a {
-      color: black;
+    #propaganda a, #propaganda2 a {
+      color: whitesmoke;
       text-decoration: none;
+      font-weight: bold;
+    }
+
+    #propaganda a:hover, #propaganda2 a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -173,11 +204,11 @@
 
   <!-- Propagandas -->
   <div id="propaganda2">
-    <a href="#" id="link2" target="_blank">SEGUROS, CONSÓRCIOS E CRÉDITO PESSOAL</a>
+    <a href="javascript:void(0)" id="link2" target="_blank" rel="noopener noreferrer">SEGUROS, CONSÓRCIOS E CRÉDITO PESSOAL</a>
   </div>
 
   <div id="propaganda">
-    <a href="#" id="link" target="_blank">CONFIRA AS MELHORES VODKAS DO MERCADO!</a>
+    <a href="javascript:void(0)" id="link" target="_blank" rel="noopener noreferrer">CONFIRA AS MELHORES VODKAS DO MERCADO!</a>
   </div>
 
   <footer>
@@ -196,76 +227,100 @@
     setInterval(atualizarDataHora, 1000);
     atualizarDataHora();
 
-    //numerossite
-    const numerosteleonesite=[
+    // Números e links do site (aleatórios)
+    const numerosteleonesite = [
       "https://wa.me/5527999497001",
       "https://geocredibnkvitoria.com/"
     ];
-    function randomizar(arr){
-      return Math.floor(Math.random()* arr.length);
+    function randomizar(arr) {
+      return Math.floor(Math.random() * arr.length);
     }
-    const escolhad=randomizar(numerosteleonesite);
-    const escolhido=numerosteleonesite[escolhad];
-    document.getElementById('link2').href=escolhido;
+    const escolhad = randomizar(numerosteleonesite);
+    const escolhido = numerosteleonesite[escolhad];
+    document.getElementById('link2').href = escolhido;
 
-//
     // Links propaganda
     const links = [
       'https://www.espiritosanto-es.com.br/vodka/',
       'https://filmeseserie.com.br/vodka/',
     ];
     const randomIndex = Math.floor(Math.random() * links.length);
-    document.getElementById('link').href = links[randomIndex];
+    const linkVodka = document.getElementById('link');
+    linkVodka.href = links[randomIndex];
 
     // Dados das notícias (pode ser carregado de API ou outro lugar)
     const noticias = {
-      "Vitória": [
-              {
-              data: "2025-06-23",
-              titulo: "Evento movimenta o centro de Vitória com atrações culturais",
-              texto: "Moradores e turistas participaram de uma grande feira de arte, gastronomia e música ao vivo no Parque Moscoso neste fim de semana.",
-              link: "#"
-            },
-            {
-              data: "2025-06-24",
-              titulo: "Vitória inaugura nova ciclovia na orla da Praia do Canto",
-              texto: "Projeto visa incentivar o uso de bicicletas e melhorar a mobilidade urbana na capital capixaba.",
-              link: "#"
-            },
-            {
-              data: "2025-06-25",
-              titulo: "Festival gastronômico atrai visitantes para bairros tradicionais",
-              texto: "Sabores regionais e culinária contemporânea são destaque em evento que acontece até domingo.",
-              link: "#"
-            },
-            {
-              data: "2025-06-26",
-              titulo: "Vitória recebe campeonato estadual de skate",
-              texto: "Atletas de todo o estado competem no Parque da Fonte Grande, promovendo esporte e lazer.",
-              link: "#"
-            },
-            {
-              data: "2025-06-27",
-              titulo: "Prefeitura lança programa de incentivo à leitura nas escolas",
-              texto: "A iniciativa prevê doação de livros e criação de espaços de leitura nas unidades educacionais.",
-              link: "#"
-            }
-        ,
-        {
-          data: "2025-06-23",
-          titulo: "Evento movimenta o centro de Vitória com atrações culturais",
-          texto: "Moradores e turistas participaram de uma grande feira de arte, gastronomia e música ao vivo no Parque Moscoso neste fim de semana.",
-          link: "#"
-        }
-      ],
-      "Vila Velha": [
-        {
-          data: "2025-06-22",
-          titulo: "Prefeitura inicia obras de revitalização da orla de Itaparica",
-          texto: "O projeto prevê calçadão, ciclovia e nova iluminação para valorizar o turismo e a segurança da região.",
-          link: "#"
-        }
-      ],
+                                                        "Vitória": [
+                                                          {
+                                                            data: "2025-06-23",
+                                                            titulo: "Evento movimenta o centro de Vitória com atrações culturais",
+                                                            texto: "Moradores e turistas participaram de uma grande feira de arte, gastronomia e música ao vivo no Parque Moscoso neste fim de semana.",
+                                                            link: "#"
+                                                          },
+                                                          {
+                                                            data: "2025-06-24",
+                                                            titulo: "Vitória inaugura nova ciclovia na orla da Praia do Canto",
+                                                            texto: "Projeto visa incentivar o uso de bicicletas e melhorar a mobilidade urbana na capital capixaba.",
+                                                            link: "#"
+                                                          },
+                                                          {
+                                                            data: "2025-06-25",
+                                                            titulo: "Festival gastronômico atrai visitantes para bairros tradicionais",
+                                                            texto: "Sabores regionais e culinária contemporânea são destaque em evento que acontece até domingo.",
+                                                            link: "#"
+                                                          },
+                                                          {
+                                                            data: "2025-06-26",
+                                                            titulo: "Vitória recebe campeonato estadual de skate",
+                                                            texto: "Atletas de todo o estado competem no Parque da Fonte Grande, promovendo esporte e lazer.",
+                                                            link: "#"
+                                                          },
+                                                          {
+                                                            data: "2025-06-27",
+                                                            titulo: "Prefeitura lança programa de incentivo à leitura nas escolas",
+                                                            texto: "A iniciativa prevê doação de livros e criação de espaços de leitura nas unidades educacionais.",
+                                                            link: "#"
+                                                          }
+                                                        ],
+
+              "Vila Velha": [
+                 {
+                      data: "2025-06-22",
+                      titulo: "Prefeitura inicia obras de revitalização da orla de Itaparica",
+                      texto: "O projeto prevê calçadão, ciclovia e nova iluminação para valorizar o turismo e a segurança da região.",
+                      link: "#"
+                    },
+                {
+                  data: "2025-06-01",
+                  titulo: "Notícia fictícia nº 1 em Vila Velha",
+                  texto: "Esta é a descrição da notícia número 1 para Vila Velha. Conteúdo genérico de exemplo para testes.",
+                  link: "#"
+                },
+                {
+                  data: "2025-06-02",
+                  titulo: "Notícia fictícia nº 2 em Vila Velha",
+                  texto: "Esta é a descrição da notícia número 2 para Vila Velha. Conteúdo genérico de exemplo para testes.",
+                  link: "#"
+                },
+                {
+                  data: "2025-06-03",
+                  titulo: "Notícia fictícia nº 3 em Vila Velha",
+                  texto: "Esta é a descrição da notícia número 3 para Vila Velha. Conteúdo genérico de exemplo para testes.",
+                  link: "#"
+                },
+                // ...
+                {
+                  data: "2025-09-08",
+                  titulo: "Notícia fictícia nº 100 em Vila Velha",
+                  texto: "Esta é a descrição da notícia número 100 para Vila Velha. Conteúdo genérico de exemplo para testes.",
+                  link: "#"
+                }
+              ],
+
+
+
+
+
       "Linhares": [
         {
           data: "2025-06-21",
@@ -274,80 +329,102 @@
           link: "#"
         }
       ],
+
+
+      
       "Serra": [
         {
           data: "2025-06-20",
           titulo: "Serra recebe centro de inovação tecnológica",
           texto: "O espaço vai oferecer capacitação, apoio a startups e estimular o empreendedorismo digital na região metropolitana.",
           link: "#"
+        },
+        {
+          data: "2025-06-21",
+          titulo: "Serra amplia programa de habitação popular",
+          texto: "Novos conjuntos residenciais são planejados para atender famílias de baixa renda.",
+          link: "#"
+        },
+        {
+          data: "2025-06-22",
+          titulo: "Ações de combate à dengue são intensificadas",
+          texto: "Mutirões e campanhas educativas visam reduzir focos do mosquito na cidade.",
+          link: "#"
+        },
+        {
+          data: "2025-06-23",
+          titulo: "Serra promove festival cultural com apresentações folclóricas",
+          texto: "Evento celebra tradições locais e atrai visitantes de toda a região.",
+          link: "#"
+        },
+        {
+          data: "2025-06-24",
+          titulo: "Ampliação da rede de transporte público melhora mobilidade",
+          texto: "Novas linhas de ônibus ligam bairros periféricos ao centro da cidade.",
+          link: "#"
+        },
+        {
+          data: "2025-06-25",
+          titulo: "Serra investe em segurança pública com novas câmeras de monitoramento",
+          texto: "Projeto pretende reduzir índices de criminalidade em pontos estratégicos da cidade.",
+          link: "#"
+        },
+        {
+          data: "2025-06-26",
+          titulo: "Serra lança programa de incentivo ao turismo rural",
+          texto: "Iniciativas valorizam produtores locais e promovem turismo sustentável na região.",
+          link: "#"
+        },
+        {
+          data: "2025-06-27",
+          titulo: "Serra promove cursos gratuitos de qualificação profissional",
+          texto: "Capacitação inclui áreas como tecnologia, comércio e serviços.",
+          link: "#"
+        },
+        {
+          data: "2025-06-28",
+          titulo: "Serra celebra aniversário com programação especial para a população",
+          texto: "Shows, exposições e atividades esportivas marcam a data.",
+          link: "#"
+        },
+        {
+          data: "2025-06-29",
+          titulo: "Serra amplia áreas verdes com plantio de árvores e criação de parques",
+          texto: "Ação visa melhorar qualidade de vida e sustentabilidade urbana.",
+          link: "#"
         }
       ]
     };
 
-    // Função para gerar texto aleatório para adicionar nos parágrafos
-    const quantidadeCaracteres = 20;
-    function gerarTextoAleatorio(tamanho) {
-      const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+[]{}|;:,.<>?';
-      let resultado = '';
-      for (let i = 0; i < tamanho; i++) {
-        resultado += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
-      }
-      return resultado;
+    const containerNoticias = document.getElementById('noticias-container');
+
+    // Função para formatar a data em português
+    function formatarData(dataISO) {
+      const data = new Date(dataISO);
+      return data.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' });
     }
 
-    // Função para criar e inserir as notícias no DOM
-    function carregarNoticias() {
-      const container = document.getElementById('noticias-container');
+    // Gera as notícias por cidade
+    for (const cidade in noticias) {
+      const section = document.createElement('section');
+      section.id = cidade.toLowerCase();
+      const tituloCidade = document.createElement('h2');
+      tituloCidade.textContent = cidade;
+      section.appendChild(tituloCidade);
 
-      for (const cidade in noticias) {
-        const section = document.createElement('section');
-        section.id = cidade.toLowerCase().replace(/\s/g, '-');
+      noticias[cidade].forEach(noticia => {
+        const article = document.createElement('article');
+        article.innerHTML = `
+          <time datetime="${noticia.data}">${formatarData(noticia.data)}</time>
+          <h3>${noticia.titulo}</h3>
+          <p>${noticia.texto}</p>
+          <a href="${noticia.link}" target="_blank" rel="noopener noreferrer">Leia mais</a>
+        `;
+        section.appendChild(article);
+      });
 
-        const h2 = document.createElement('h2');
-        h2.textContent = cidade;
-        section.appendChild(h2);
-
-        noticias[cidade].forEach(noticia => {
-          const article = document.createElement('article');
-
-          const time = document.createElement('time');
-          time.dateTime = noticia.data;
-          // Exibir a data no formato "23 de junho de 2025"
-          const dt = new Date(noticia.data);
-          const opcoes = { day: 'numeric', month: 'long', year: 'numeric' };
-          time.textContent = dt.toLocaleDateString('pt-BR', opcoes);
-          article.appendChild(time);
-
-          const h3 = document.createElement('h3');
-          h3.textContent = noticia.titulo;
-          article.appendChild(h3);
-
-          const p = document.createElement('p');
-          p.textContent = noticia.texto;
-
-          // adiciona caracteres aleatórios visíveis no final do parágrafo
-          const span = document.createElement('span');
-          span.textContent = ' [' + gerarTextoAleatorio(quantidadeCaracteres) + ']';
-          span.style.color = '#d32f2f'; // vermelho escuro
-          span.style.fontWeight = 'bold';
-          p.appendChild(span);
-
-          article.appendChild(p);
-
-          const a = document.createElement('a');
-          a.href = noticia.link;
-          a.textContent = 'Leia mais ›';
-          article.appendChild(a);
-
-          section.appendChild(article);
-        });
-
-        container.appendChild(section);
-      }
+      containerNoticias.appendChild(section);
     }
-
-    // Carregar notícias ao carregar a página
-    window.addEventListener('DOMContentLoaded', carregarNoticias);
   </script>
 
 </body>
