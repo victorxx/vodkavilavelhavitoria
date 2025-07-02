@@ -198,6 +198,7 @@
     <div id="dataHora" style="font-size: 1.2rem; color: red; font-weight: bold; margin-bottom: 1rem;"></div>
   </header>
 
+
   <main class="container" id="noticias-container">
     <!-- Notícias serão adicionadas aqui via JS -->
   </main>
@@ -330,7 +331,6 @@
         }
       ],
 
-
       
       "Serra": [
         {
@@ -426,6 +426,43 @@
       containerNoticias.appendChild(section);
     }
   </script>
+  <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Conteúdo Aleatório</title>
+  <style>
+    #randomDiv {
+      padding: 20px;
+      font-family: monospace;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      width: fit-content;
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="randomDiv"></div>
+
+<script>
+  function gerarConteudoAleatorio(tamanho) {
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?";
+    let resultado = "";
+    for(let i = 0; i < tamanho; i++) {
+      resultado += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return resultado;
+  }
+
+  const div = document.getElementById("randomDiv");
+  div.textContent = gerarConteudoAleatorio(300);  // 30 caracteres aleatórios
+</script>
+  <div id="randomDiv"></div>
+</body>
+</html>
+
 
 </body>
 </html>
