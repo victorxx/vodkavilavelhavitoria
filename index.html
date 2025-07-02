@@ -188,6 +188,25 @@
     #propaganda a:hover, #propaganda2 a:hover {
       text-decoration: underline;
     }
+    #video-container {
+      width: 560px;
+      margin: 20px auto;
+      border: 2px solid #333;
+      border-radius: 8px;
+      padding: 10px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    iframe {
+      width: 100%;
+      height: 315px;
+      border: none;
+      margin-bottom: 10px;
+    }
+    #video-title {
+      font-size: 20px;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -198,7 +217,11 @@
     <div id="dataHora" style="font-size: 1.2rem; color: red; font-weight: bold; margin-bottom: 1rem;"></div>
   </header>
 
-
+ <div id="video-container">
+  <!---------------videosyoutube-->
+    <div id="video-title"></div>
+    <div id="video-player"></div>
+  </div>
   <main class="container" id="noticias-container">
     <!-- Notícias serão adicionadas aqui via JS -->
   </main>
@@ -250,151 +273,151 @@
     linkVodka.href = links[randomIndex];
 
     // Dados das notícias (pode ser carregado de API ou outro lugar)
-    const noticias = {
-                                                        "Vitória": [
-                                                          {
-                                                            data: "2025-06-23",
-                                                            titulo: "Evento movimenta o centro de Vitória com atrações culturais",
-                                                            texto: "Moradores e turistas participaram de uma grande feira de arte, gastronomia e música ao vivo no Parque Moscoso neste fim de semana.",
-                                                            link: "#"
-                                                          },
-                                                          {
-                                                            data: "2025-06-24",
-                                                            titulo: "Vitória inaugura nova ciclovia na orla da Praia do Canto",
-                                                            texto: "Projeto visa incentivar o uso de bicicletas e melhorar a mobilidade urbana na capital capixaba.",
-                                                            link: "#"
-                                                          },
-                                                          {
-                                                            data: "2025-06-25",
-                                                            titulo: "Festival gastronômico atrai visitantes para bairros tradicionais",
-                                                            texto: "Sabores regionais e culinária contemporânea são destaque em evento que acontece até domingo.",
-                                                            link: "#"
-                                                          },
-                                                          {
-                                                            data: "2025-06-26",
-                                                            titulo: "Vitória recebe campeonato estadual de skate",
-                                                            texto: "Atletas de todo o estado competem no Parque da Fonte Grande, promovendo esporte e lazer.",
-                                                            link: "#"
-                                                          },
-                                                          {
-                                                            data: "2025-06-27",
-                                                            titulo: "Prefeitura lança programa de incentivo à leitura nas escolas",
-                                                            texto: "A iniciativa prevê doação de livros e criação de espaços de leitura nas unidades educacionais.",
-                                                            link: "#"
-                                                          }
-                                                        ],
+                              const noticias = {
+                                                                                  "Vitória": [
+                                                                                    {
+                                                                                      data: "2025-06-23",
+                                                                                      titulo: "Evento movimenta o centro de Vitória com atrações culturais",
+                                                                                      texto: "Moradores e turistas participaram de uma grande feira de arte, gastronomia e música ao vivo no Parque Moscoso neste fim de semana.",
+                                                                                      link: "#"
+                                                                                    },
+                                                                                    {
+                                                                                      data: "2025-06-24",
+                                                                                      titulo: "Vitória inaugura nova ciclovia na orla da Praia do Canto",
+                                                                                      texto: "Projeto visa incentivar o uso de bicicletas e melhorar a mobilidade urbana na capital capixaba.",
+                                                                                      link: "#"
+                                                                                    },
+                                                                                    {
+                                                                                      data: "2025-06-25",
+                                                                                      titulo: "Festival gastronômico atrai visitantes para bairros tradicionais",
+                                                                                      texto: "Sabores regionais e culinária contemporânea são destaque em evento que acontece até domingo.",
+                                                                                      link: "#"
+                                                                                    },
+                                                                                    {
+                                                                                      data: "2025-06-26",
+                                                                                      titulo: "Vitória recebe campeonato estadual de skate",
+                                                                                      texto: "Atletas de todo o estado competem no Parque da Fonte Grande, promovendo esporte e lazer.",
+                                                                                      link: "#"
+                                                                                    },
+                                                                                    {
+                                                                                      data: "2025-06-27",
+                                                                                      titulo: "Prefeitura lança programa de incentivo à leitura nas escolas",
+                                                                                      texto: "A iniciativa prevê doação de livros e criação de espaços de leitura nas unidades educacionais.",
+                                                                                      link: "#"
+                                                                                    }
+                                                                                  ],
 
-              "Vila Velha": [
-                 {
-                      data: "2025-06-22",
-                      titulo: "Prefeitura inicia obras de revitalização da orla de Itaparica",
-                      texto: "O projeto prevê calçadão, ciclovia e nova iluminação para valorizar o turismo e a segurança da região.",
-                      link: "#"
-                    },
-                {
-                  data: "2025-06-01",
-                  titulo: "Notícia fictícia nº 1 em Vila Velha",
-                  texto: "Esta é a descrição da notícia número 1 para Vila Velha. Conteúdo genérico de exemplo para testes.",
-                  link: "#"
-                },
-                {
-                  data: "2025-06-02",
-                  titulo: "Notícia fictícia nº 2 em Vila Velha",
-                  texto: "Esta é a descrição da notícia número 2 para Vila Velha. Conteúdo genérico de exemplo para testes.",
-                  link: "#"
-                },
-                {
-                  data: "2025-06-03",
-                  titulo: "Notícia fictícia nº 3 em Vila Velha",
-                  texto: "Esta é a descrição da notícia número 3 para Vila Velha. Conteúdo genérico de exemplo para testes.",
-                  link: "#"
-                },
-                // ...
-                {
-                  data: "2025-09-08",
-                  titulo: "Notícia fictícia nº 100 em Vila Velha",
-                  texto: "Esta é a descrição da notícia número 100 para Vila Velha. Conteúdo genérico de exemplo para testes.",
-                  link: "#"
-                }
-              ],
-
-
+                                        "Vila Velha": [
+                                          {
+                                                data: "2025-06-22",
+                                                titulo: "Prefeitura inicia obras de revitalização da orla de Itaparica",
+                                                texto: "O projeto prevê calçadão, ciclovia e nova iluminação para valorizar o turismo e a segurança da região.",
+                                                link: "#"
+                                              },
+                                          {
+                                            data: "2025-06-01",
+                                            titulo: "Notícia fictícia nº 1 em Vila Velha",
+                                            texto: "Esta é a descrição da notícia número 1 para Vila Velha. Conteúdo genérico de exemplo para testes.",
+                                            link: "#"
+                                          },
+                                          {
+                                            data: "2025-06-02",
+                                            titulo: "Notícia fictícia nº 2 em Vila Velha",
+                                            texto: "Esta é a descrição da notícia número 2 para Vila Velha. Conteúdo genérico de exemplo para testes.",
+                                            link: "#"
+                                          },
+                                          {
+                                            data: "2025-06-03",
+                                            titulo: "Notícia fictícia nº 3 em Vila Velha",
+                                            texto: "Esta é a descrição da notícia número 3 para Vila Velha. Conteúdo genérico de exemplo para testes.",
+                                            link: "#"
+                                          },
+                                          // ...
+                                          {
+                                            data: "2025-09-08",
+                                            titulo: "Notícia fictícia nº 100 em Vila Velha",
+                                            texto: "Esta é a descrição da notícia número 100 para Vila Velha. Conteúdo genérico de exemplo para testes.",
+                                            link: "#"
+                                          }
+                                        ],
 
 
 
-      "Linhares": [
-        {
-          data: "2025-06-21",
-          titulo: "Nova fábrica gera 300 empregos diretos em Linhares",
-          texto: "Com investimento de R$ 80 milhões, empresa do setor de embalagens se instala no Polo Industrial do município.",
-          link: "#"
-        }
-      ],
 
-      
-      "Serra": [
-        {
-          data: "2025-06-20",
-          titulo: "Serra recebe centro de inovação tecnológica",
-          texto: "O espaço vai oferecer capacitação, apoio a startups e estimular o empreendedorismo digital na região metropolitana.",
-          link: "#"
-        },
-        {
-          data: "2025-06-21",
-          titulo: "Serra amplia programa de habitação popular",
-          texto: "Novos conjuntos residenciais são planejados para atender famílias de baixa renda.",
-          link: "#"
-        },
-        {
-          data: "2025-06-22",
-          titulo: "Ações de combate à dengue são intensificadas",
-          texto: "Mutirões e campanhas educativas visam reduzir focos do mosquito na cidade.",
-          link: "#"
-        },
-        {
-          data: "2025-06-23",
-          titulo: "Serra promove festival cultural com apresentações folclóricas",
-          texto: "Evento celebra tradições locais e atrai visitantes de toda a região.",
-          link: "#"
-        },
-        {
-          data: "2025-06-24",
-          titulo: "Ampliação da rede de transporte público melhora mobilidade",
-          texto: "Novas linhas de ônibus ligam bairros periféricos ao centro da cidade.",
-          link: "#"
-        },
-        {
-          data: "2025-06-25",
-          titulo: "Serra investe em segurança pública com novas câmeras de monitoramento",
-          texto: "Projeto pretende reduzir índices de criminalidade em pontos estratégicos da cidade.",
-          link: "#"
-        },
-        {
-          data: "2025-06-26",
-          titulo: "Serra lança programa de incentivo ao turismo rural",
-          texto: "Iniciativas valorizam produtores locais e promovem turismo sustentável na região.",
-          link: "#"
-        },
-        {
-          data: "2025-06-27",
-          titulo: "Serra promove cursos gratuitos de qualificação profissional",
-          texto: "Capacitação inclui áreas como tecnologia, comércio e serviços.",
-          link: "#"
-        },
-        {
-          data: "2025-06-28",
-          titulo: "Serra celebra aniversário com programação especial para a população",
-          texto: "Shows, exposições e atividades esportivas marcam a data.",
-          link: "#"
-        },
-        {
-          data: "2025-06-29",
-          titulo: "Serra amplia áreas verdes com plantio de árvores e criação de parques",
-          texto: "Ação visa melhorar qualidade de vida e sustentabilidade urbana.",
-          link: "#"
-        }
-      ]
-    };
+
+                                "Linhares": [
+                                  {
+                                    data: "2025-06-21",
+                                    titulo: "Nova fábrica gera 300 empregos diretos em Linhares",
+                                    texto: "Com investimento de R$ 80 milhões, empresa do setor de embalagens se instala no Polo Industrial do município.",
+                                    link: "#"
+                                  }
+                                ],
+
+                                
+                                "Serra": [
+                                  {
+                                    data: "2025-06-20",
+                                    titulo: "Serra recebe centro de inovação tecnológica",
+                                    texto: "O espaço vai oferecer capacitação, apoio a startups e estimular o empreendedorismo digital na região metropolitana.",
+                                    link: "#"
+                                  },
+                                  {
+                                    data: "2025-06-21",
+                                    titulo: "Serra amplia programa de habitação popular",
+                                    texto: "Novos conjuntos residenciais são planejados para atender famílias de baixa renda.",
+                                    link: "#"
+                                  },
+                                  {
+                                    data: "2025-06-22",
+                                    titulo: "Ações de combate à dengue são intensificadas",
+                                    texto: "Mutirões e campanhas educativas visam reduzir focos do mosquito na cidade.",
+                                    link: "#"
+                                  },
+                                  {
+                                    data: "2025-06-23",
+                                    titulo: "Serra promove festival cultural com apresentações folclóricas",
+                                    texto: "Evento celebra tradições locais e atrai visitantes de toda a região.",
+                                    link: "#"
+                                  },
+                                  {
+                                    data: "2025-06-24",
+                                    titulo: "Ampliação da rede de transporte público melhora mobilidade",
+                                    texto: "Novas linhas de ônibus ligam bairros periféricos ao centro da cidade.",
+                                    link: "#"
+                                  },
+                                  {
+                                    data: "2025-06-25",
+                                    titulo: "Serra investe em segurança pública com novas câmeras de monitoramento",
+                                    texto: "Projeto pretende reduzir índices de criminalidade em pontos estratégicos da cidade.",
+                                    link: "#"
+                                  },
+                                  {
+                                    data: "2025-06-26",
+                                    titulo: "Serra lança programa de incentivo ao turismo rural",
+                                    texto: "Iniciativas valorizam produtores locais e promovem turismo sustentável na região.",
+                                    link: "#"
+                                  },
+                                  {
+                                    data: "2025-06-27",
+                                    titulo: "Serra promove cursos gratuitos de qualificação profissional",
+                                    texto: "Capacitação inclui áreas como tecnologia, comércio e serviços.",
+                                    link: "#"
+                                  },
+                                  {
+                                    data: "2025-06-28",
+                                    titulo: "Serra celebra aniversário com programação especial para a população",
+                                    texto: "Shows, exposições e atividades esportivas marcam a data.",
+                                    link: "#"
+                                  },
+                                  {
+                                    data: "2025-06-29",
+                                    titulo: "Serra amplia áreas verdes com plantio de árvores e criação de parques",
+                                    texto: "Ação visa melhorar qualidade de vida e sustentabilidade urbana.",
+                                    link: "#"
+                                  }
+                                ]
+                              };
 
     const containerNoticias = document.getElementById('noticias-container');
 
@@ -459,8 +482,37 @@
   const div = document.getElementById("randomDiv");
   div.textContent = gerarConteudoAleatorio(300);  // 30 caracteres aleatórios
 </script>
+<!-----------------randomiza div-->
   <div id="randomDiv"></div>
+<!-----------------randomiza div-->
+
+
+
+
+
+<!---------------------------------------------videosyouutube-->
+ <script>
+    const videos = [
+      { id: "uVfNZweT5RE", title: "vida honk falando do rica games" },
+
+    ];
+
+    function mostrarVideoAleatorio() {
+      const randomIndex = Math.floor(Math.random() * videos.length);
+      const video = videos[randomIndex];
+
+      document.getElementById('video-title').innerText = video.title;
+      document.getElementById('video-player').innerHTML = `
+        <iframe src="https://www.youtube.com/embed/${video.id}" allowfullscreen></iframe>
+      `;
+    }
+
+    window.onload = mostrarVideoAleatorio;
+  </script>
+
 </body>
+
+
 </html>
 
 
